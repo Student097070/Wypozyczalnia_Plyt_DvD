@@ -5,15 +5,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="844.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Wypozyczalnia.SceneController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="844.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projekt.SceneController">
    <children>
       <Text layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wypozyczalnia plyt dvd" textAlignment="CENTER" wrappingWidth="390.0">
          <font>
             <Font size="48.0" />
          </font>
       </Text>
-      <Button layoutX="106.0" layoutY="429.0" mnemonicParsing="false" onAction="#SwichToWypozycz" prefHeight="87.0" prefWidth="179.0" text="Wypozycz">
+      <Button layoutX="106.0" layoutY="429.0" mnemonicParsing="false" onAction="#SwichToMainMenu" prefHeight="87.0" prefWidth="179.0" text="Wypozycz">
          <font>
             <Font size="24.0" />
          </font>
@@ -23,7 +22,7 @@
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="106.0" layoutY="665.0" mnemonicParsing="false" prefHeight="87.0" prefWidth="179.0" text="Wyloguj">
+      <Button layoutX="106.0" layoutY="665.0" mnemonicParsing="false" onAction="#SwichToMenu" prefHeight="87.0" prefWidth="179.0" text="Wyloguj">
          <font>
             <Font size="24.0" />
          </font>

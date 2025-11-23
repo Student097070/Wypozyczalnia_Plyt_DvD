@@ -1,11 +1,11 @@
-package Wypozyczalnia;
+package com.example.projekt;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import  javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-//import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 public class SceneController {
@@ -14,7 +14,10 @@ public class SceneController {
     private Parent root;
 
     public void SwichToMenu(javafx.event.ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/src/main/GUI/Menu.fxml"));
+        Parent root = FXMLLoader.load(
+                getClass().getResource("/com/example/projekt/Menu.fxml")
+        );
+
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -22,15 +25,32 @@ public class SceneController {
     }
 
     public void SwichToLogin(javafx.event.ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/src/main/GUI/EkranLogowania.fxml"));
+        Parent root = FXMLLoader.load(
+                getClass().getResource("/com/example/projekt/EkranLogowania.fxml")
+        );
+
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
-    public void SwichToWypozycz(javafx.event.ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/src/main/GUI/EkranLogowania.fxml"));
+    public void SwichToMainMenu(javafx.event.ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(
+                getClass().getResource("/com/example/projekt/EkranPoZalogowaniu.fxml")
+        );
+
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void SwichToCreate(javafx.event.ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(
+                getClass().getResource("/com/example/projekt/EkranTworzeniaKonta.fxml")
+        );
+
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
