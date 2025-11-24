@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Wypozyczalnia" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="com.example.projekt.Main" />
+    <module name="PROJEKT" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
