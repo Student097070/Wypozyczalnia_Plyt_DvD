@@ -7,44 +7,50 @@ import java.util.logging.Logger;
 
 public class ConnectDB {
     private Connection connection;
-    private Logger logger;
-    public ConnectDB() {
-        String url = "jdbc:sqlite:BazaFilmow.db";//  database URL
-        try {
-            connection = DriverManager.getConnection(url);
-            System.out.println("Connection successful");
-        } catch (SQLException e) {
-            System.out.println("Connection failed");
-            e.printStackTrace();
+    private Logger logger = Logger.getLogger(this.getClass().getName());
+
+    public void getConnection() {
+        try{
+            if(connection == null || connection.isClosed()){
+                connection = DriverManager.getConnection("jdbc:sqlite:BazaFilmow.db");
+                logger.info("Connection successful");
+                //createTable();
+            }
+        }catch (SQLException e){
+            logger.info(e.toString());
         }
     }
-    public Connection getConnection() {
-        return connection;
+
+    private void createTable() {
+        getConnection();
+        String createTable="CREATE TABLE IF NOT EXISTS Filmy (id INTEGER PRIMARY KEY, name TEXT UNIQUE, wypozyczono BOOLEAN)";
+        createTable= "CREATE TABLE IF NOT EXISTS Uzytkownicy (id INTEGER PRIMARY KEY, login TEXT UNIQUE, haslo TEXT )";
+            try(PreparedStatement st = connection.prepareStatement(createTable)){
+                st.executeUpdate(createTable);
+                logger.info("Table created");
+            }catch (SQLException e){
+                logger.info(e.toString());
+            }
     }
 
-    public void closeConnection()throws SQLException {
-        try {
-            if (connection != null) {
-                System.out.println("Closing connection");
-                connection.close();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
+    private void closeConnection() throws SQLException {
+        if (connection != null || !connection.isClosed()) {
+            connection.close();
         }
     }
 
     public void insertNewUser(String login, String password) {
-        Connection conn = getConnection();
+        getConnection();
 
-        String query = "INSERT INTO Uzytkownicy (login, password) VALUES (?, ?)";
+        String query = "INSERT INTO Uzytkownicy (login, haslo) VALUES (?, ?)";
 
-        try (PreparedStatement statement = conn.prepareStatement(query)) {
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setString(1, login);
             statement.setString(2, password);
             statement.executeUpdate();
             logger.info("Uzytkownik inserted successfully");
         } catch (SQLException e) {
-            logger.info("Błąd podczas dodawania użytkownika: " + e);
+            logger.info(e.toString());
         }
     }
 }

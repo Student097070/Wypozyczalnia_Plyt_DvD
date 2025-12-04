@@ -6,7 +6,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import models.ConnectDB;
@@ -16,7 +15,6 @@ import java.io.IOException;
 public class SceneController {
     private Scene scene;
     private Stage stage;
-    private Parent root;
     private ConnectDB db = new ConnectDB();
 
     @FXML
@@ -85,10 +83,7 @@ public class SceneController {
     }
 
     @FXML
-    public void SaveNewUser(javafx.event.ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(
-                getClass().getResource("/com/example/projekt/EkranTworzenieKonta.fxml")
-        );
+    public void SaveNewUser(javafx.event.ActionEvent event){
         db.insertNewUser(login.getText(),password.getText());
     }
 }

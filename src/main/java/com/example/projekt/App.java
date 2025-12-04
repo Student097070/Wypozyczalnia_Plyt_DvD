@@ -9,20 +9,23 @@ import models.ConnectDB;
 import java.io.IOException;
 
 public class App extends Application {
-    @Override
-    public void start(Stage stage){
 
-        try {
-            Parent root = FXMLLoader.load(
-                    getClass().getResource("/com/example/projekt/Menu.fxml")
-            );
-            Scene scene = new Scene(root);
-            stage.setTitle("Wypozyczalnia plyt DVD");
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    private ConnectDB db = new ConnectDB();
+
+    @Override
+    public void start(Stage stage) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("Menu.fxml"));
+        Scene scene = new Scene(loader.load());
+        stage.setTitle("Wypozyczalnia plyt DVD");
+        stage.setScene(scene);
+        stage.show();
+
+        db.getConnection();
     }
 
+    public static void main(String[] args) { launch(); }
 }
+
+
+
