@@ -14,7 +14,7 @@
             <Font size="48.0" />
          </font>
       </Text>
-      <TextField layoutX="58.0" layoutY="339.0" prefHeight="25.0" prefWidth="273.0" />
+      <TextField fx:id="login2" layoutX="58.0" layoutY="339.0" prefHeight="25.0" prefWidth="273.0" />
       <Text layoutX="58.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nazwa uzytkownika ">
          <font>
             <Font size="24.0" />
@@ -29,6 +29,6 @@
       <Button layoutX="279.0" layoutY="522.0" mnemonicParsing="false" onAction="#SwichToCreate" text="stworz" />
       <Button layoutX="58.0" layoutY="783.0" mnemonicParsing="false" onAction="#SwichToMenu" text="anuluj" />
       <Button layoutX="280.0" layoutY="783.0" mnemonicParsing="false" onAction="#SwichToMainMenu" text="zaloguj" />
-      <PasswordField layoutX="58.0" layoutY="488.0" prefHeight="25.0" prefWidth="273.0" />
+      <PasswordField fx:id="password2" layoutX="58.0" layoutY="488.0" prefHeight="25.0" prefWidth="273.0" />
    </children>
 </AnchorPane>
