@@ -11,15 +11,17 @@ public class Main {
         if (connection != null) {
             try {
                 Statement statement = connection.createStatement();
-                String createTable="CREATE TABLE IF NOT EXISTS Filmy (id INTEGER PRIMARY KEY, name TEXT, wypozyczono BOOLEAN)";
+                String createTable="CREATE TABLE IF NOT EXISTS Filmy (id INTEGER PRIMARY KEY, name TEXT UNIQUE, wypozyczono BOOLEAN)";
+
+                createTable= "CREATE TABLE IF NOT EXISTS Uzytkownicy (id INTEGER PRIMARY KEY, login TEXT UNIQUE, haslo TEXT )";
                 statement.executeUpdate(createTable);
-                // Insert data
-                //statement.executeUpdate("INSERT INTO Filmy (name) VALUES ('Diuna'), (wypozyczono) VALUES (False)");
+
             } catch (SQLException e) {
                 e.printStackTrace();
-            } finally {
-                db.closeConnection();
             }
+//            finally {
+//                db.closeConnection();
+//            }
         } else {
             System.out.println("Connection failed");
         }

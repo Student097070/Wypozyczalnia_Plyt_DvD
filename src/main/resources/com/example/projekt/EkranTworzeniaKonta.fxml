@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -13,19 +14,19 @@
                 <Font size="48.0" />
             </font>
         </Text>
-        <TextField layoutX="58.0" layoutY="339.0" prefHeight="25.0" prefWidth="273.0" />
+        <TextField layoutX="58.0" layoutY="339.0" prefHeight="25.0" prefWidth="273.0" promptText="login" />
         <Text layoutX="58.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nazwa uzytkownika ">
             <font>
                 <Font size="24.0" />
             </font>
         </Text>
-        <TextField layoutX="58.0" layoutY="483.0" prefHeight="25.0" prefWidth="273.0" />
         <Text layoutX="58.0" layoutY="474.0" strokeType="OUTSIDE" strokeWidth="0.0" text="haslo">
             <font>
                 <Font size="24.0" />
             </font>
         </Text>
         <Button layoutX="58.0" layoutY="783.0" mnemonicParsing="false" onAction="#SwichToLogin" text="anuluj" />
-        <Button layoutX="280.0" layoutY="783.0" mnemonicParsing="false" onAction="#SwichToMenu" text="stworz" />
+        <Button layoutX="280.0" layoutY="783.0" mnemonicParsing="false" onAction="#SaveNewUser" text="stworz" />
+      <PasswordField layoutX="58.0" layoutY="489.0" prefHeight="25.0" prefWidth="273.0" promptText="haslo" />
     </children>
 </AnchorPane>
